@@ -30,4 +30,8 @@ void insertFirst(list *L, address P);
 void insertLast(list *L, address P);
 void insertAfter (list *L, address P);
 
+void deleteAfter(list *L, address P);
+address searchElement(list *L,string idBook);
+void searchData(list *L);
+
 #endif // LIST_H_INCLUDED
