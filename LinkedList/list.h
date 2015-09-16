@@ -27,5 +27,7 @@ void createBuku(Buku *addBuku);
 int countElement(list *L);
 void viewElement(list *L);
 void insertFirst(list *L, address P);
+void insertLast(list *L, address P);
+void insertAfter (list *L, address P);
 
 #endif // LIST_H_INCLUDED

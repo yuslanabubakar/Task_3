@@ -26,6 +26,8 @@ int main()
     cin>>menu; cin.ignore(); cout << endl;
     switch (menu) {
       case '1' : createBuku(&dataBuku); P = createElement(dataBuku); insertFirst(&mainList, P); goto MenuLabel;
+      case '2' : createBuku(&dataBuku); P = createElement(dataBuku); insertAfter(&mainList, P); goto MenuLabel;
+      case '3' : createBuku(&dataBuku); P = createElement(dataBuku); insertLast(&mainList, P); goto MenuLabel;
       case '7' : viewElement(&mainList); goto MenuLabel;
     return 0;
 }
