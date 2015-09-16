@@ -121,10 +121,45 @@ void insertAfter (list *L, address P)
     }
 }
 
+void deleteFirst(list *L, address P)
+{
+    if (L->first != NULL)
+    {
+        P = L->first;
+        L->first = P->next;
+        P->next = NULL;
+        delete P;
+    }
+    else
+    {
+        cout<<"List Kosong tidak Ada Elemen"<<endl;
+    }
+}
 
-
-
-
+void deleteLast(list *L, address P)
+{
+    if (L->first != NULL)
+    {
+        if (countElement(L) == 1)
+            deleteFirst(L, P);
+        else
+        {
+            address Prec;
+            P = L->first;
+            while (P->next != NULL)
+            {
+                Prec = P;
+                P = P->next;
+            }
+            Prec->next = NULL;
+            delete P;
+        }
+    }
+    else
+    {
+        cout<<"List Kosong tidak Ada Elemen"<<endl;
+    }
+}
 
 void deleteAfter(list *L, address P)
 {
