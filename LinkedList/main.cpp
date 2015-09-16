@@ -28,6 +28,10 @@ int main()
       case '1' : createBuku(&dataBuku); P = createElement(dataBuku); insertFirst(&mainList, P); goto MenuLabel;
       case '2' : createBuku(&dataBuku); P = createElement(dataBuku); insertAfter(&mainList, P); goto MenuLabel;
       case '3' : createBuku(&dataBuku); P = createElement(dataBuku); insertLast(&mainList, P); goto MenuLabel;
+      case '6' : deleteAfter(&mainList, P); goto MenuLabel;
       case '7' : viewElement(&mainList); goto MenuLabel;
+      case '8' : searchData(&mainList); goto MenuLabel;
+      default : goto MenuLabel;
+    }
     return 0;
 }
