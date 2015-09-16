@@ -120,3 +120,90 @@ void insertAfter (list *L, address P)
         insertFirst(L,P);
     }
 }
+
+
+
+
+
+
+void deleteAfter(list *L, address P)
+{
+    int totElm = countElement(L);
+    int x;
+    address prec;
+    if (L->first != NULL)
+    {
+        cout<<"Ada "<<totElm<<" Elemen \n";
+        if (countElement(L) == 1)
+        {
+            cout << "Sistem Akan Menghapus Elemen Pertama"<<endl;
+            deleteFirst(L,P);
+        }
+        else
+        {
+            cout <<"Masukan Posisi Elemen yang ingin anda Delete : ";
+            cin>>x;
+            cin.ignore();
+        }
+        if (x>0 && x<=totElm)
+        {
+            prec = L->first;
+            for (int i=1; i<x-1; i++)
+            {
+                prec = prec->next;
+            }
+            P = prec->next;
+            prec->next = P->next;
+            P->next = NULL;
+            delete P;
+        }
+    }
+    else
+    {
+        cout<<"List Kosong tidak Ada Elemen"<<endl;
+    }
+
+}
+
+address searchElement(list *L,string idBook)
+{
+    address P;
+    P = L->first;
+    while(P != NULL)
+    {
+        if (P->info.isbn == idBook)
+        {
+            return P;
+        }
+        P = P->next;
+    }
+    return NULL;
+}
+
+void searchData(list *L)
+{
+    if(L->first != NULL)
+    {
+        address P;
+        string searchData;
+        cout<<"Masukan ISBN / IdBook yang ingin dicari : ";
+        getline(cin,searchData);
+        P = searchElement(L, searchData);
+        cout<<P<<endl;
+        if (P != NULL)
+        {
+            cout<<"Hasil Data yang dicari"<<endl;
+            cout<<"ISBN      : "<<P->info.isbn<<endl;
+            cout<<"Judul     : "<<P->info.judul<<endl;
+            cout<<"Pengarang : "<<P->info.pengarang<<endl;
+            cout<<"Penerbit  : "<<P->info.penerbit<<endl;
+            cout<<"Harga     : "<<P->info.harga<<endl;
+        }
+        else
+            cout<<"Data Book NOT FOUND 404"<<endl;
+    }
+    else
+    {
+        cout<<"Sorry Brother LIST KOSONG"<<endl;
+    }
+}
